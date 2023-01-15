@@ -230,3 +230,10 @@ Arbitrum and Optimism differ in some low-level nitty-gritty technical details, b
 
 and many more... This is not an exhaustive list, and there are many more Layer 2 solutions out there competing for attention and market share, differing in technical details on low-level implementations. You can probably find hundreds if you look online.
 
+#### Recommended Watch
+
+[Ethereum Layer 2 Scaling Explained](https://youtu.be/BgCgauWVTs0)
+
+[Rollups Explained](https://youtu.be/7pWxCklcNsU)
+
+[Overview of different Scaling Solutions](https://www.youtube.com/watch?v=9pJjtEeq-N4)
