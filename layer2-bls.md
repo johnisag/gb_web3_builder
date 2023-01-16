@@ -51,7 +51,7 @@ Data availability strategies deal with whether or not the Layer 2 solution makes
 
 ### State Channels
 
-### ![](<.gitbook/assets/image (2).png>)
+### ![](<.gitbook/assets/image (2) (1).png>)
 
 State channels were the first widespread scaling approach for blockchains. **State channels are used when two or more users want to do a bunch of transactions in a trusted setting without paying gas every single time.**
 
@@ -74,7 +74,7 @@ This approach is not without its challenges as well. **The core assumption under
 
 ### Side Chains 
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 A side chain is an independent EVM-compatible blockchain which runs in parallel to a main blockchain, and has a channel to Layer 1.
 
@@ -110,7 +110,7 @@ Unlike state channels, the transaction data that rollups post on the main chain 
 
 **Optimistic Rollups**
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In optimistic rollups, batches of transaction data are posted to the main chain and presumed to be **valid by default** (hence the name optimistic) but can be challenged by other users.
 
@@ -152,7 +152,7 @@ So, why have optimistic rollups at all?
 
 ### Plasma
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 Plasma is a framework for building scalable, layer 2 applications. Plasma uses a lot of the above ideas in its applications. The building blocks of plasma are off-chain executions, state commitments, and entry/exits to the main chain. A plasma chain is a separate, child blockchain that is anchored to the main Ethereum chain. Plasma chains use various fraud proofs to arbitrate disputes, just like optimistic rollups. Like side chains, plasma chains have their own consensus algorithm and create blocks of transactions. At fixed intervals, a compressed representation of each block is committed to a smart contract on Ethereum. [Merkle trees](https://en.wikipedia.org/wiki/Merkle\_tree) enable creation of a limitless stack of these chains that can work to offload bandwidth from the parent chains (including Mainnet). Plasma chains do as much work as possible off-chain. The implementation of Plasma gives the ability of hundreds of side chain transactions to be processed offline with only a single hash of the side chain block being added to the Ethereum blockchain.
 
