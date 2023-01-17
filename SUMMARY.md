@@ -3,4 +3,4 @@
 * [Web3 Builder](README.md)
 * [Layer2 BLs](layer2-bls.md)
 * [non-EVM BL](non-evm-bl.md)
-* [ENS](ens.md)
+* [Using ENS](using-ens.md)
