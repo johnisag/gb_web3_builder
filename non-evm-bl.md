@@ -79,7 +79,7 @@ It is important to note that NEAR also runs an Ethereum Layer 2 blockchain calle
 
 ### Flow Blockchain
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Flow describes themselves as a "fast, decentralized, and developer-friendly blockchain". They are based on a multirole architecture, and designed to scale **without** sharding.
 
@@ -149,7 +149,7 @@ Flow has focused on making things easy to use for the mainstream. When interacti
 
 ### Avalanche
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Avalanche is an open source platform for building dApps and enterprise platforms in an interoperable ecosystem of blockchains. **It is a smart contracts platform, which offers high throughput and near-instant transaction finality**. Also, **Avalanche supports Solidity, so smart contracts from Ethereum can easily be ported over to Avalanche.**
 
@@ -181,7 +181,7 @@ Short of creating your own subnet, the main chain that Avalanche is used for is 
 
 ### Solana
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 Solana has been talked about a lot recently, and has been making the rounds on news. They have seen some good days and some bad days, but for this section, we will try to go over a bit of what technology they are running under the hood.
 

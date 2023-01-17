@@ -74,7 +74,7 @@ This approach is not without its challenges as well. **The core assumption under
 
 ### Side Chains 
 
-<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A side chain is an independent EVM-compatible blockchain which runs in parallel to a main blockchain, and has a channel to Layer 1.
 
@@ -152,7 +152,7 @@ So, why have optimistic rollups at all?
 
 ### Plasma
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Plasma is a framework for building scalable, layer 2 applications. Plasma uses a lot of the above ideas in its applications. The building blocks of plasma are off-chain executions, state commitments, and entry/exits to the main chain. A plasma chain is a separate, child blockchain that is anchored to the main Ethereum chain. Plasma chains use various fraud proofs to arbitrate disputes, just like optimistic rollups. Like side chains, plasma chains have their own consensus algorithm and create blocks of transactions. At fixed intervals, a compressed representation of each block is committed to a smart contract on Ethereum. [Merkle trees](https://en.wikipedia.org/wiki/Merkle\_tree) enable creation of a limitless stack of these chains that can work to offload bandwidth from the parent chains (including Mainnet). Plasma chains do as much work as possible off-chain. The implementation of Plasma gives the ability of hundreds of side chain transactions to be processed offline with only a single hash of the side chain block being added to the Ethereum blockchain.
 
@@ -176,7 +176,7 @@ For example, if a professional trading firm was trading massive amounts on money
 
 Layer 2 solutions fall in one of these data-availability situations:
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 NOTE: On-chain and off-chain in this context particularly refers to the MAIN Layer 1 chain. On-chain means data is available on the Layer 1 main chain, and off-chain means it is NOT available on the Layer 1 main chain, though it _may_ be available on the Layer 2 chain.
 
