@@ -1,4 +1,4 @@
-# non-EVM BL
+# non-EVM Blockchains
 
 ### Layer 1 vs Layer 2
 

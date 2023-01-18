@@ -2,7 +2,7 @@
 description: Layer 1 vs Layer 2
 ---
 
-# Layer2 BLs
+# Layer2 Blockchains
 
 ### Layer 1
 
