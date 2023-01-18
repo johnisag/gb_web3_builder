@@ -8,10 +8,10 @@ Summarized content from [https://learnweb3.io/](https://learnweb3.io/)
 
 Topics:
 
-* Layer2 BLs
-* non-EVM BLs
+* Layer2 Blockchains
+* non-EVM Blockchains
 * ENS and dApps
-* Decentrilised Github
+* Decentralised Github (**Radicle**)
 * Local Testing
 * Verifying on Etherscan
 * IPFS

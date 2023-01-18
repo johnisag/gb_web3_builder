@@ -1,6 +1,6 @@
 # Table of contents
 
 * [Web3 Builder](README.md)
-* [Layer2 BLs](layer2-bls.md)
-* [non-EVM BL](non-evm-bl.md)
+* [Layer2 Blockchains](layer2-blockchains.md)
+* [non-EVM Blockchains](non-evm-blockchains.md)
 * [Using ENS](using-ens.md)
