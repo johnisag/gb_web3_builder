@@ -5,3 +5,4 @@
 * [non-EVM Blockchains](non-evm-bl.md)
 * [Using ENS](using-ens.md)
 * [Decentralized Github](decentralized-github.md)
+* [Local Testing](local-testing.md)
