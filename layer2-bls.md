@@ -110,7 +110,7 @@ Unlike state channels, the transaction data that rollups post on the main chain 
 
 **Optimistic Rollups**
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In optimistic rollups, batches of transaction data are posted to the main chain and presumed to be **valid by default** (hence the name optimistic) but can be challenged by other users.
 

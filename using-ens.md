@@ -43,7 +43,7 @@ When the progress bar enters the 3rd step, Click ** `Register`**
 
 Then after the progress bar finishes click on **`Set As Primary ENS Name`**
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 From the dropdown then select the ENS name you just created
 
@@ -51,7 +51,7 @@ From the dropdown then select the ENS name you just created
 
 Click **`Save`**
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Now you have an ENS registered to your address on Goerli.
 
