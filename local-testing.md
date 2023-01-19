@@ -127,6 +127,37 @@ npx hardhat run scripts/deploy.js
 
 ### Metamask Connection
 
+Click on your profile and then click on settings
+
+![](<.gitbook/assets/image (11).png>)
+
+Then click on Networks, followed by **`Localhost 8545`**
+
+``![](<.gitbook/assets/image (1).png>)``
+
+
+
+![](<.gitbook/assets/image (6).png>)
+
+
+
+Change the **Chain ID to `31337`**(this is the chainId for the local blockchain you are running) and then click **`Save`**
+
+**``**![](<.gitbook/assets/image (10).png>)**``**
+
+* Now your MetaMask has a connection to your local blockchain&#x20;
+* We will now add the accounts that Hardhat gave to us.&#x20;
+* In the node terminal, you should see several accounts displayed. Let's grab one of those:
+
+```
+Account #0: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 (10000 ETH)
+Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+```
+
+* Go to **Metamask --> click on your profile --> Import Account.**&#x20;
+* Select private key in the dropdown and paste the private key from the account you wish.&#x20;
+* You should now see an account with 10000 ETH (wow!)
+
 
 
 ### Remix

@@ -18,7 +18,7 @@ Layer 2 blockchains refer to networks that operate on top of an underlying Layer
 
 ### NEAR Protocol
 
-![](<.gitbook/assets/image (6).png>)
+![](<.gitbook/assets/image (6) (1).png>)
 
 NEAR is a Layer-1 smart contract platform that utilizes parallel sharding storage and computation technology to scale. It also uses Proof of Stake consensus and has over 100 validators securing millions of dollars on the network.
 
@@ -79,7 +79,7 @@ It is important to note that NEAR also runs an Ethereum Layer 2 blockchain calle
 
 ### Flow Blockchain
 
-<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Flow describes themselves as a "fast, decentralized, and developer-friendly blockchain". They are based on a multirole architecture, and designed to scale **without** sharding.
 
