@@ -62,7 +62,7 @@ Each subsequent shard can verify the receipt transaction and get confirmation th
 
 Smart contracts for the NEAR Layer 1 blockchain can be written either in **Rust** or **AssemblyScript**. Communication with blockchain nodes can be done over an HTTP API (similar to Ethereum).
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 It is important to note that NEAR also runs an Ethereum Layer 2 blockchain called **Aurora** which uses the native ETH token as the native gas token for the layer 2 as well.
 
@@ -105,7 +105,7 @@ Flow applies pipelining concepts to the blockchain by separating the jobs of a v
 3. Execution
 4. Verification
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Looking at the above figure, we can see that older blocks are further along the pipeline stage. B1 for example is in the execution state, while B2 is verifying B1 before moving onto executing B2. B3 at this time is doing consensus on it's transactions, and will eventually verify B2, and then execute B3, and so on.
 
