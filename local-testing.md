@@ -12,7 +12,7 @@ This tutorial should familiarize you with starting a local blockchain using Hard
 * It is only your machine which is running the blockchain and thus consensus is fast and you dont have to wait for other nodes to sync or validate.&#x20;
 * You can also use many specialized modules specially built for local testing like [Hardhat console.log](https://hardhat.org/tutorial/debugging-with-hardhat-network.html) which helps you to add printing inside your contract.
 
-### Build
+### Smart Contract
 
 To build the smart contract we would be using [Hardhat](https://hardhat.org/).
 
@@ -70,6 +70,54 @@ contract Greeter {
     fallback() external payable{}
 }
 ```
+
+* **`view` ** function, it costs no gas, and requires no signing to execute
+* **`setGreeting` ** method updates the smart contract state, it costs gas, and requires signing
+* **memory variables** live only within contract lifecycle
+* **`setGreeting` ** uses the **Hardhat's console.log contract**, so **we can actually debug** and see to what values was `greeting` changed to!
+
+**Running your local blockchain in your terminal pointing to your directory**&#x20;
+
+```shell
+npx hardhat node
+```
+
+This command starts a local blockchain node for you. You should be able to see some accounts which have already been funded by hardhat with 10000 ETH
+
+**Create/replace** ./**`scripts`**/**`deploy.js`**.
+
+```javascript
+async function main() {
+  const greeterContract = await ethers.getContractFactory("Greeter");
+
+  // here we deploy the contract; we provide also constructor args
+  const deployedGreeterContract = await greeterContract.deploy(
+    "Set by the constructor"
+  );
+  await deployedGreeterContract.deployed();
+
+  // print the address of the deployed contract
+  console.log("Greeter Contract Address:", deployedGreeterContract.address);
+}
+
+// Call the main function and catch if there is any error
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+```
+
+**Compile and deploy**
+
+<pre class="language-shell"><code class="lang-shell"># If we experience Error: Cannot find module '@nomicfoundation/hardhat-toolbox', then
+<strong># npm install --save-dev @nomicfoundation/hardhat-toolbox
+</strong>
+# from within hardhat folder
+npx hardhat compile
+npx hardhat run scripts/deploy.js
+</code></pre>
 
 ### Metamask Connection
 
