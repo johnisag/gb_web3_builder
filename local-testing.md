@@ -80,7 +80,13 @@ contract Greeter {
 
 ```shell
 npx hardhat node
+# after start we should see something like:
+# Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 ```
+
+* Keep this terminal running
+* Keep port used by HTTP and WebSocket JSON-RPC server
+* We will use this port (8545 here) with metamask
 
 This command starts a local blockchain node for you. You should be able to see some accounts which have already been funded by hardhat with 10000 ETH
 
