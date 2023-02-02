@@ -149,7 +149,7 @@ Flow has focused on making things easy to use for the mainstream. When interacti
 
 ### Avalanche
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Avalanche is an open source platform for building dApps and enterprise platforms in an interoperable ecosystem of blockchains. **It is a smart contracts platform, which offers high throughput and near-instant transaction finality**. Also, **Avalanche supports Solidity, so smart contracts from Ethereum can easily be ported over to Avalanche.**
 

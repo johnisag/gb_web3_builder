@@ -51,7 +51,7 @@ Data availability strategies deal with whether or not the Layer 2 solution makes
 
 ### State Channels
 
-### ![](<.gitbook/assets/image (2) (1).png>)
+### ![](<.gitbook/assets/image (2) (1) (1).png>)
 
 State channels were the first widespread scaling approach for blockchains. **State channels are used when two or more users want to do a bunch of transactions in a trusted setting without paying gas every single time.**
 
@@ -176,7 +176,7 @@ For example, if a professional trading firm was trading massive amounts on money
 
 Layer 2 solutions fall in one of these data-availability situations:
 
-<figure><img src=".gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 NOTE: On-chain and off-chain in this context particularly refers to the MAIN Layer 1 chain. On-chain means data is available on the Layer 1 main chain, and off-chain means it is NOT available on the Layer 1 main chain, though it _may_ be available on the Layer 2 chain.
 

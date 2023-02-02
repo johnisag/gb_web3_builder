@@ -2,7 +2,7 @@
 description: Testing contracts on a local blockchain node
 ---
 
-# Local Testing
+# Local Node Testing
 
 This tutorial should familiarize you with starting a local blockchain using Hardhat, deploying a sample smart contract to the local blockchain and interacting with that blockchain with Metamask and Remix.
 
@@ -168,7 +168,7 @@ Go to [remix.ethereum.org](https://remix.ethereum.org/#optimize=false\&runs=200\
 
 **Compile `Greeter.sol`**
 
-![](.gitbook/assets/image.png)
+![](<.gitbook/assets/image (3).png>)
 
 Now to deploy, go to deployment tab and in your environment select **`Injected Provider - Metamask`**, make sure that the account connected is the one that you imported above and the network is ** `Localhost 8545`** on your MetaMask
 
@@ -184,5 +184,5 @@ Set a greeting and click on `setGreeting`
 
 Check your terminal which was running your hardhat node, it should have the console.log
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 

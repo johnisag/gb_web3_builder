@@ -6,3 +6,5 @@
 * [Using ENS](using-ens.md)
 * [Decentralized Github](decentralized-github.md)
 * [Local Node Testing](local-node-testing.md)
+* [Verifying on Etherscan](verifying-on-etherscan.md)
+* [IPFS](ipfs.md)

@@ -12,7 +12,7 @@ Topics:
 * non-EVM Blockchains
 * ENS and dApps
 * Decentralised Github (**Radicle**)
-* Local Testing
+* Local Node Testing
 * Verifying on Etherscan
 * IPFS
 * NFT and IPFS
