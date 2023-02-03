@@ -48,7 +48,7 @@ The Radicle Network is built on a peer-to-peer protocol called Radicle Link. Rad
 
 The gossip protocol is a decentralized communication protocol, where all nodes randomly talk to other nodes and request information or share information they want to, and by forwarding knowledge to other nodes, the 'gossip' eventually makes way to nodes who want what you have, or have what you want.
 
-<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 Very similar to how IPFS shares data, participants in the Radicle Network share and spread data they are interested in by keeping a local copy and sharing it. Since it is an extension of the Git protocol, it maintains the efficiency of Git's data transfer protocol through the peer to peer network.
 

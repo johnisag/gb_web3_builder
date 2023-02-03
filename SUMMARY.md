@@ -8,3 +8,4 @@
 * [Local Node Testing](local-node-testing.md)
 * [Verifying on Etherscan](verifying-on-etherscan.md)
 * [IPFS](ipfs.md)
+* [NFT and IFPS](nft-and-ifps.md)

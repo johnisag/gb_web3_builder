@@ -133,7 +133,7 @@ Click on your profile and then click on settings
 
 Then click on Networks, followed by **`Localhost 8545`**
 
-``![](<.gitbook/assets/image (1).png>)``
+``![](<.gitbook/assets/image (1) (2).png>)``
 
 
 
