@@ -14,17 +14,40 @@ description: Create an NFT Collection with metadata stored on IPFS
 
 ### IPFS
 
-First, we need to upload our images and metadata on to IPFS.&#x20;
-
-We'll use a service called [Pinata](https://www.pinata.cloud/) which will help us upload and pin content on IPFS. Once you've signed up, go to the [Pinata Dashboard](https://app.pinata.cloud/pinmanager) and click on 'Upload' and then on 'Folder'.
-
-Download [the LW3Punks folder](https://github.com/LearnWeb3DAO/IPFS-Practical/tree/master/my-app/public/LW3punks) to your computer and then upload to it `Pinata`, name the folder `LW3Punks`
+* We need to upload our images and metadata on to IPFS.&#x20;
+* We'll use a service called [Pinata](https://www.pinata.cloud/) which will help us upload and pin content on IPFS.&#x20;
+* Once you've signed up, go to the [Pinata Dashboard](https://app.pinata.cloud/pinmanager) and click on 'Upload' and then on 'Folder'.
+* Download [the LW3Punks folder](https://github.com/LearnWeb3DAO/IPFS-Practical/tree/master/my-app/public/LW3punks) to your computer and then upload to it `Pinata`, name the folder `LW3Punks`
 
 Now you should be able to see a `CID` for your folder
 
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+* You can check that it actually got uploaded to IPFS is by opening this up: `https://ipfs.io/ipfs/your-nft-folder-cid` replace `your-nft-folder-cid` with the CID you recieved from pinata.
+* The images for your NFT's have now been uploaded to IPFS but just having images is not enough, each NFT should also have associated metadata
+* We will now upload metadata for each NFT to IPFS, each metadata file will be a `json` file. Example for metadata of NFT `1` has been given below:
+
+```json
+{
+  "name": "1",
+  "description": "NFT Collection for LearnWeb3 Students",
+  "image": "ipfs://QmQBHarz2WFczTjz5GnhjHrbUPDnB48W5BM2v2h6HbE1rZ/1.png"
+}
+```
+
+Note how "image" has ipfs location in it instead of an `https` url. Also note that because you uploaded a folder, you will also need to specify which file within the folder has the correct image for the given NFT. Thus in our case the correct way to specify the location for an NFT image would be `ipfs://CID-OF-THE-LW3Punks-Folder/NFT-NAME.png`
+
+We have pre-generated files for metadata for you, you can download them to your computer from [here](https://github.com/LearnWeb3DAO/IPFS-Practical/tree/master/my-app/public/metadata), upload these files to pinata and name the folder `metadata`
+
+Now each NFT's metadata has been uploaded to IPFS and pinata should have generated a CID for your metadata folder
+
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
+You can check that it actually got uploaded to IPFS is by opening this up: `https://ipfs.io/ipfs/your-metadata-folder-cid` replace `your-metadata-folder-cid` with the CID you recieved from pinata.
 
+Copy this CID and store it on your notepad, you will need this futher down in the tutorial
+
+### Contract
 
 
 

@@ -168,7 +168,7 @@ Go to [remix.ethereum.org](https://remix.ethereum.org/#optimize=false\&runs=200\
 
 **Compile `Greeter.sol`**
 
-![](<.gitbook/assets/image (3).png>)
+![](<.gitbook/assets/image (3) (2).png>)
 
 Now to deploy, go to deployment tab and in your environment select **`Injected Provider - Metamask`**, make sure that the account connected is the one that you imported above and the network is ** `Localhost 8545`** on your MetaMask
 
