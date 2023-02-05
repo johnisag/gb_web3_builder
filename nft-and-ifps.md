@@ -11,6 +11,9 @@ description: Create an NFT Collection with metadata stored on IPFS
 * The metadata for the NFT's should be stored on IPFS
 * There should be a website for your NFT Collection.
 * The NFT contract should be deployed on Mumbai testnet
+* <mark style="color:red;">**THESE TUROTIAL REQUIRES EHTERS 5 NOT 6**</mark>
+  * <mark style="color:red;">**npm remove ethers**</mark>
+  * <mark style="color:red;">**npm i ethers@5**</mark>
 
 ### IPFS
 
