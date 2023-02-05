@@ -49,5 +49,40 @@ Copy this CID and store it on your notepad, you will need this futher down in th
 
 ### Contract
 
+We will be using [**`Ownable.sol`**](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol) from Openzeppelin to manage the **`Ownership`** of a contract
+
+* By default, the owner of an **Ownable** contract is the account that deployed it, which is usually exactly what you want.
+* **Ownable** also **allows** you to:
+  * **transferOwnership** from the **owner account to a new one**, and
+  * **renounceOwnership** for the owner to relinquish this administrative privilege, a common pattern after an initial stage with centralized administration is over.
+
+We will also be using an extension of ERC721 known as [**ERC721 Enumerable**](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol)
+
+* **ERC721 Enumerable** helps you to **keep track of all the tokenIds** in the contract **and** also the **tokensIds held by an address** for a given contract.
+* Please have a look at the [**functions**](https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721Enumerable) it implements before moving ahead
+
+To build the smart contract we would be using [**Hardhat**](https://hardhat.org/).
+
+* Hardhat is an **Ethereum development environment and framework** designed for full stack development in Solidity.
+* You can **write** your smart contract, **deploy** them, **run tests**, and **debug** your code.
+
+**Setup a Hardhat project**
+
+```shell
+mkdir nft-ipfs
+cd nft-ipfs
+mkdir hardhat-tutorial
+cd hardhat-tutorial
+npm init --yes
+npm install --save-dev hardhat
+
+# bootstrap the hardhat project
+npx hardhat
+```
+
+
+
+
+
 
 
