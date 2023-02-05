@@ -11,9 +11,37 @@ description: Create an NFT Collection with metadata stored on IPFS
 * The metadata for the NFT's should be stored on IPFS
 * There should be a website for your NFT Collection.
 * The NFT contract should be deployed on Mumbai testnet
-* <mark style="color:red;">**THESE TUROTIAL REQUIRES EHTERS 5 NOT 6**</mark>
-  * <mark style="color:red;">**npm remove ethers**</mark>
-  * <mark style="color:red;">**npm i ethers@5**</mark>
+*   <mark style="color:red;">**THESE TUROTIAL REQUIRES EHTERS 5 NOT 6**</mark>
+
+    * <mark style="color:red;">**npm remove ethers**</mark>
+    * <mark style="color:red;">**npm i ethers@5**</mark>
+
+    <mark style="color:red;">****</mark>
+* <mark style="color:red;">**Solution:**</mark>
+
+```javascript
+import { Contract, ethers, parseEther } from "ethers";// 
+```
+
+It looks like that we are getting the provider like this with v6
+
+```javascript
+const provider = await web3ModalRef.current.connect();
+const web3Provider = new ethers.BrowserProvider(provider);
+```
+
+parseEther also moved in ethers so,
+
+```javascript
+.....
+const tx = await nftContract.mint({
+        // value signifies the cost of one LW3Punks which is "0.01" eth.
+        // We are parsing `0.01` string to ether using the utils library from ethers.js
+        value: parseEther("0.01"),
+});
+```
+
+###
 
 ### IPFS
 
