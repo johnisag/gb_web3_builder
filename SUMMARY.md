@@ -9,3 +9,4 @@
 * [Verifying on Etherscan](verifying-on-etherscan.md)
 * [IPFS](ipfs.md)
 * [NFT and IFPS](nft-and-ifps.md)
+* [Using Ceramic Network](using-ceramic-network.md)

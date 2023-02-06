@@ -52,7 +52,7 @@ const tx = await nftContract.mint({
 
 Now you should be able to see a `CID` for your folder
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 * You can check that it actually got uploaded to IPFS is by opening this up: `https://ipfs.io/ipfs/your-nft-folder-cid` replace `your-nft-folder-cid` with the CID you recieved from pinata.
 * The images for your NFT's have now been uploaded to IPFS but just having images is not enough, each NFT should also have associated metadata
