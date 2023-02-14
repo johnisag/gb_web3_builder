@@ -45,7 +45,7 @@ Trends like decentralized social medias, decentralized reputation platforms, dec
 
 <mark style="color:purple;">**This will change. Ceramic is betting on interoperable applications and interoperable ecosystems being able to outcompete these siloed platforms.**</mark>
 
-### So... What does Ceramic do?
+### What does Ceramic do?
 
 Ceramic is building:
 
@@ -74,19 +74,76 @@ It is helpful to look at specific use cases that can be enabled by Ceramic today
 
 #### Decentralized Reputation
 
+Reputation is highly tied into a person's identity.&#x20;
 
+* On Twitter, it's followers and likes.&#x20;
+* On Instagram, it is the hearts.&#x20;
+* On Reddit, it's Karma, and&#x20;
+* On StackOverflow, it's points.
+
+In the web3 ecosystem today, **dApps can hardly do better** than centralized reputation systems like the above examples, with each platform having it's own reputation system.&#x20;
+
+**This is largely because storing large amounts of decentralized data that can change over time was not viable.**&#x20;
+
+And even if Ethereum Layer 2's were to reduce storage costs massively, what about non-Ethereum chains?&#x20;
+
+What happens to your reputation when you switch to NEAR or Flow or Solana?
+
+<mark style="color:purple;">Enter Ceramic.</mark>
+
+* dApps can use Ceramic's data protocol to build standardized multi-chain reputation systems.&#x20;
+* <mark style="color:orange;">A user can connect multiple wallets to their decentralized identity</mark>, belong from different blockchains, and data can be written to and updated from the user's decentralized data store on Ceramic.
+* Regardless of what chain and dApp the user is using, they can carry around their reputation system with them.
 
 #### Social Graphs
 
+Similar to reputation, your social graph is also heavily centralized in today's world.&#x20;
 
+* Twitter followers,&#x20;
+* Facebook friends,&#x20;
+* LinkedIn connections, and&#x20;
+* Snapchat buddies are all differently siloed.
+
+With **censorship increasing** on centralized social medias over time, and since social media companies are the biggest in the world with some of them having enough power to manipulate entire national elections, **the need for decentralized social media has never been more**.
+
+Instead of locking users into a platform, we can actually allow for interoperability and optionality.
+
+* dApps can follow standardized data models to store posts and social graphs.&#x20;
+* These social graphs are carried by the user to whatever dApp they want to use.&#x20;
+* &#x20;Products compete on which offers the best experience, not who has the most vendor lock-in.
+
+This also allows for smaller players and startups with better products to achieve easier market penetration.&#x20;
+
+They can utilize the underlying data that already exists, and when users sign up on their platform all their data is carried along with them.&#x20;
+
+For bigger players, there can be financial incentives for providing a large amount of data for that datamodel.
 
 #### Multi-Wallet and Multi-Chain Identity
 
+You could extrapolate the decentralized reputation use case to achieve generalized multi-wallet and multi-chain identity for users.&#x20;
 
+<mark style="color:purple;">Instead of tying up data in smart contracts or offchain based on wallet addresses, data can be tied up to a user's decentralized identity which can be controlled by multiple wallets across multiple chains.</mark>
+
+This way, multi-chain dApps can have a decentralized, yet single, source of truth for a user's data.
 
 ### Ceramic's Multi Chain Architecture
 
+At the lowest level, there is a decentralized identity. The most common approach to <mark style="color:orange;">decentralized identities on Ceramic is something called a</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**3ID**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> (Three ID) - named after the team behind Ceramic Network called 3Box Labs.
 
+**A user can link multiple wallets from multiple chains to a single 3ID.**&#x20;
+
+* Ceramic **supports** <mark style="color:purple;">more than 10 blockchains</mark>, and is continually adding support for more.
+* 3IDs can own data on Ceramic Network.&#x20;
+
+Data on Ceramic is referred to as **Streams**.&#x20;
+
+* Each stream therefore **has an owner (or multiple owners)**.
+* Streams have unique **StreamID**s, which remain the same over the lifetime of the stream.&#x20;
+* **3IDs** can **modify** and **update** the **contents** of a **Stream** that they have **ownership on**.
+* Streams have a **genesis** state, which is the initial data the Stream was created with.&#x20;
+* Following the genesis state, users can create **commits** on Streams, which represent modifications to the data.&#x20;
+* <mark style="color:orange;">The latest state of a Stream can be computed by starting from the genesis state and applying all the commits one by one.</mark>&#x20;
+* The **latest state** is also referred to as the **tip** of a stream.
 
 
 
