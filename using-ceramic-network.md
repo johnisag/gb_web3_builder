@@ -183,4 +183,62 @@ We will create a simple Next.js application, which uses Self.ID.&#x20;
 * Then, we will **allow** the user to **write some data to their decentralized profile**, and be able to **retrieve it from the Ceramic Network**.
 * For **verification** of this level, we will **ask** you to **enter your profile's StreamID at the end**.
 
-Let's get started by creating a new `next` app. Run the following command to create a new Next.js application inside a folder named `ceramic-tutorial`
+**Bootstrap** the **Next js** project&#x20;
+
+* Note use javascript project
+
+```sh
+npx create-next-app@latest ceramic-tutorial
+```
+
+Install **web3modal** and **ethers.js** libraries from within the project root
+
+* Note : We install v5 specifically since the new v6 has breaking changes to the code.
+
+```sh
+npm install ethers@5 web3modal
+```
+
+Install the **Self.ID npm packages**, and a **dependent library** from within the project root
+
+```sh
+npm install "@self.id/react" "@self.id/web" key-did-provider-ed25519
+```
+
+**The first thing we need to do is **<mark style="color:purple;">**add Self.ID's Provider**</mark>** to the application.**&#x20;
+
+The SDK exposes a **`Provider` ** component that **needs to be added to the root of your web app.**
+
+* This initiatalizes the Self.ID instance,&#x20;
+* connects to the Ceramic Network, and&#x20;
+* makes Ceramic-related functionality available all across your app.
+
+To do this, note in your **`pages` folder** Next.js automatically created a file called **`_app.js`.**&#x20;
+
+* This is the root of your web-app, and&#x20;
+* All other pages you create are rendered according to the configuration present in this file.&#x20;
+* By default, **it does nothing special**, and just renders your page directly.&#x20;
+* In our case, **we want to wrap every component of ours with the Self.ID provider.**
+
+**Import the `Provider` from **<mark style="color:purple;">**Self.ID.**</mark>&#x20;
+
+* Add the following line at the top of **`_app.js`**
+
+```javascript
+import { Provider } from "@self.id/react";
+```
+
+* Change the `MyApp` function in that file to return the `Component` wrapped inside a `Provider`
+
+```javascript
+function MyApp({ Component, pageProps }) {
+  return (
+    <Provider client={{ ceramic: "testnet-clay" }}>
+      <Component {...pageProps} />;
+    </Provider>
+  );
+}
+```
+
+
+
