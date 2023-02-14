@@ -126,7 +126,7 @@ You could extrapolate the decentralized reputation use case to achieve generaliz
 
 This way, multi-chain dApps can have a decentralized, yet single, source of truth for a user's data.
 
-### Ceramic's Multi Chain Architecture
+### Multi Chain Architecture
 
 At the lowest level, there is a decentralized identity. The most common approach to <mark style="color:orange;">decentralized identities on Ceramic is something called a</mark> <mark style="color:orange;"></mark><mark style="color:orange;">**3ID**</mark> <mark style="color:orange;"></mark><mark style="color:orange;"></mark> (Three ID) - named after the team behind Ceramic Network called 3Box Labs.
 
@@ -145,7 +145,42 @@ Data on Ceramic is referred to as **Streams**.&#x20;
 * <mark style="color:orange;">The latest state of a Stream can be computed by starting from the genesis state and applying all the commits one by one.</mark>&#x20;
 * The **latest state** is also referred to as the **tip** of a stream.
 
+### Using Ceramic
 
+Ceramic **provides** a suite of **high-level and low-level libraries and SDK's** to work with, depending on the use case.
 
+**For common use cases**
 
+* developers can use the **high-level SDK** (<mark style="color:purple;">**Self.ID**</mark>)&#x20;
+* <mark style="color:purple;">**Self.ID**</mark> abstracts away most of the complexities of working with 3IDs and Streams.
 
+**For complex or customized use cases**&#x20;
+
+* developers can work with a **lower-level Ceramic HTTP Client**
+* **lower-level Ceramic HTTP Client** connects to a **Ceramic node** they can run on their own (or the public nodes), and <mark style="color:purple;">**manage 3IDs and Stream data manually.**</mark>
+
+For the purposes of this tutorial, we will stick with the Self.ID high-level SDK, as otherwise this tutorial will become extremely large.&#x20;
+
+If you're interested in digging deeper, do check out their [documentation](https://developers.ceramic.network/learn/welcome/).
+
+#### Self.ID
+
+Self.ID is a single, high level, library that encapsulates&#x20;
+
+* 3ID accounts, creating and setting up a 3ID,&#x20;
+* underlying calls to Ceramic nodes,&#x20;
+* all in a single package optimized to work in a browser.
+
+The SDK also includes popular use cases like&#x20;
+
+* multi-chain user profiles built in, which makes it very easy for developers to retrieve and store multi-chain data linked to a 3ID.
+
+### Build with Ceramic
+
+We will create a simple Next.js application, which uses Self.ID.&#x20;
+
+* It will allow users to **login to the website using their wallet of choice**, which will be **linked** to **their 3ID**.&#x20;
+* Then, we will **allow** the user to **write some data to their decentralized profile**, and be able to **retrieve it from the Ceramic Network**.
+* For **verification** of this level, we will **ask** you to **enter your profile's StreamID at the end**.
+
+Let's get started by creating a new `next` app. Run the following command to create a new Next.js application inside a folder named `ceramic-tutorial`
