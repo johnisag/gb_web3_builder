@@ -240,5 +240,239 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
+* Run app to verify that everything is ok
 
+```sh
+npm run dev
+```
 
+Update **Home.modules.css** into the **styles folder**
+
+```css
+.main {
+  min-height: 100vh;
+}
+
+.navbar {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: orange;
+}
+
+.content {
+  height: 80%;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connection {
+  margin-top: 2%;
+}
+
+.mt2 {
+  margin-top: 2%;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.button {
+  background-color: azure;
+  padding: 0.5%;
+  border-radius: 10%;
+  border: 0px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: beige;
+}
+
+```
+
+Update **index.js** into the **pages folder**
+
+<pre class="language-javascript" data-overflow="wrap"><code class="lang-javascript">import styles from "@/styles/Home.module.css";
+
+import { Web3Provider } from "@ethersproject/providers";
+//add hooks
+import { useEffect, useRef, useState } from "react";
+import Web3Modal from "web3modal";
+
+<strong>// Before we initialize Web3Modal, we will setup a React Hook provided to us by the // Self.ID SDK.
+</strong>// Self.ID provides a hook called useViewerConnection which gives us an easy way to // connect
+// and disconnect to the Ceramic Network.
+import { useViewerConnection } from "@self.id/react";
+
+// The last thing we need to be able to connect to the Ceramic Network is something // called an EthereumAuthProvider.
+// It is a class exported by the Self.ID SDK which takes an Ethereum provider and an // address as an argument,
+// and uses it to connect your Ethereum wallet to your 3ID.
+import { EthereumAuthProvider } from "@self.id/web";
+
+export default function Home() {
+  // create a reference using the useRef react hook to a Web3Modal instance
+  const web3ModalRef = useRef();
+
+  // initialize React Hook provided to us by the Self.ID SDK
+  const [connection, connect, disconnect] = useViewerConnection();
+
+  // helper function to get the provider
+  // This function will prompt the user to connect their Ethereum wallet, if not  
+  // already connected, and then return a Web3Provider.
+  // However, if you try running it right now, it will fail because we have not yet 
+  // initialized web3Modal
+  const getProvider = async () => {
+    const provider = await web3ModalRef.current.connect();
+    const wrappedProvider = new Web3Provider(provider);
+    return wrappedProvider;
+  };
+
+  // We have seen this code before many times.
+  // The only difference is the conditional here.
+  // We are checking that if the user has not yet been connected to Ceramic,
+  // we are going to initialize the web3Modal.
+  useEffect(() => {
+    if (connection.status !== "connected") {
+      web3ModalRef.current = new Web3Modal({
+        network: "goerli",
+        providerOptions: {},
+        disableInjectedProvider: false,
+      });
+    }
+  }, [connection.status]);
+
+  const connectToSelfID = async () => {
+    const ethereumAuthProvider = await getEthereumAuthProvider();
+    connect(ethereumAuthProvider);
+  };
+
+  // getEthereumAuthProvider creates an instance of the EthereumAuthProvider.
+  // we are passing it wrappedProvider.provider instead of wrappedProvider directly
+  // because ethers abstracts away the low level provider calls with helper functions
+  // so it's easier for developers to use, but since not everyone uses ethers.js,
+  // Self.ID maintains a generic interface to actual provider specification,
+  // instead of the ethers wrapped version
+  const getEthereumAuthProvider = async () => {
+    const wrappedProvider = await getProvider();
+    const signer = wrappedProvider.getSigner();
+    const address = await signer.getAddress();
+    return new EthereumAuthProvider(wrappedProvider.provider, address);
+  };
+
+  return (
+    &#x3C;div className={styles.main}>
+      &#x3C;div className={styles.navbar}>
+        &#x3C;span className={styles.title}>Ceramic Demo&#x3C;/span>
+        {connection.status === "connected" ? (
+          &#x3C;span className={styles.subtitle}>Connected&#x3C;/span>
+        ) : (
+          &#x3C;button
+            onClick={connectToSelfID}
+            className={styles.button}
+            disabled={connection.status === "connecting"}
+          >
+            Connect
+          &#x3C;/button>
+        )}
+      &#x3C;/div>
+
+      &#x3C;div className={styles.content}>
+        &#x3C;div className={styles.connection}>
+          {connection.status === "connected" ? (
+            &#x3C;div>
+              &#x3C;span className={styles.subtitle}>
+                Your 3ID is {connection.selfID.id}
+              &#x3C;/span>
+              &#x3C;RecordSetter />
+            &#x3C;/div>
+          ) : (
+            &#x3C;span className={styles.subtitle}>
+              Connect with your wallet to access your 3ID
+            &#x3C;/span>
+          )}
+        &#x3C;/div>
+      &#x3C;/div>
+    &#x3C;/div>
+  );
+}
+
+// hook provided to us by Self.ID called useViewerRecord which allows storing and retrieving profile information on Ceramic Network.
+import { useViewerRecord } from "@self.id/react";
+
+//component to update our profile on ceramic network
+function RecordSetter() {
+  const record = useViewerRecord("basicProfile");
+  const [name, setName] = useState("");
+
+  const updateRecordName = async (name) => {
+    await record.merge({
+      name: name,
+    });
+  };
+
+  return (
+    &#x3C;div className={styles.content}>
+      &#x3C;div className={styles.mt2}>
+        {record.content ? (
+          &#x3C;div className={styles.flexCol}>
+            &#x3C;span className={styles.subtitle}>
+              Hello {record.content.name}!
+            &#x3C;/span>
+
+            &#x3C;span>
+              The above name was loaded from Ceramic Network. Try updating it
+              below.
+            &#x3C;/span>
+          &#x3C;/div>
+        ) : (
+          &#x3C;span>
+            You do not have a profile record attached to your 3ID. Create a
+            basic profile by setting a name below.
+          &#x3C;/span>
+        )}
+      &#x3C;/div>
+
+      &#x3C;input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className={styles.mt2}
+      />
+      &#x3C;button onClick={() => updateRecordName(name)}>Update&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+
+</code></pre>
+
+* Run app to verify that everything is ok
+
+```sh
+npm run dev
+```
