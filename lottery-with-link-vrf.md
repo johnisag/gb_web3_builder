@@ -75,7 +75,7 @@ npx hardhat
 
 Make sure you select **`Create a Javascript Project`** and then follow the steps in the terminal to complete your Hardhat setup.
 
-Install **`@openzeppelin/contracts`** as we would be importing [**Openzeppelin's ERC721Enumerable Contract**](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol)&#x20;
+Install **`@openzeppelin/contracts`** as we would be importing [**Openzeppelin's** ](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol)as we will import **Ownable.sol**
 
 ```shell
 npm install @openzeppelin/contracts
