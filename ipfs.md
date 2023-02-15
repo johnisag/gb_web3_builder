@@ -96,7 +96,7 @@ But where do we actually get the data from? If you have ever used Torrents, this
 
 Let's say you are looking for a specific file, and you have it's content hash. Instead of asking a single authority to give us that file, we ask the entire network!
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 Your request will be shared through nodes you are directly connected to, to other nodes they are connected to, and so on - until you find someone who has the content you are looking for.
 

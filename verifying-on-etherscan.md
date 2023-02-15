@@ -6,7 +6,7 @@ description: Verify your Smart Contracts on Etherscan
 
 If you open [this](https://etherscan.io/address/0x7be8076f4ea4a4ad08075c2508e481d6c946d12b#writeContract) etherscan link, you can see that you can interact with this smart contract's functions directly through etherscan, similar to how you used to do it on Remix.
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 Are you wondering why that doesn't happen for your contract?
 

@@ -10,3 +10,4 @@
 * [IPFS](ipfs.md)
 * [NFT and IFPS](nft-and-ifps.md)
 * [Using Ceramic Network](using-ceramic-network.md)
+* [Lottery with LINK VRF](lottery-with-link-vrf.md)
