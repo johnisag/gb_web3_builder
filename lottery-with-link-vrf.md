@@ -217,6 +217,61 @@ contract RandomWinnerGame is VRFConsumerBase, Ownable {
 }
 ```
 
-****
+The constructor takes in the following params:
 
-****
+* `vrfCoordinator` which is the address of the VRFCoordinator contract
+* `linkToken` is the address of the link token which is the token in which the chainlink takes its payment
+* `vrfFee` is the amount of link token that will be needed to send a randomness request
+* `vrfKeyHash` which is the ID of the public key against which randomness is generated. This value is responsible for generating an unique Id for our randomneses request called as `requestId`
+
+**(All these values are provided to us by Chainlink)**
+
+Install **`dotenv` ** package to be able to import the env file and use it in our config.&#x20;
+
+Inside **`hardhat-tutorial`** directory:
+
+```shell
+npm install dotenv
+```
+
+Create a `.env` file in the `hardha_tutorial` folder and add the following lines
+
+```javascript
+QUICKNODE_HTTP_URL="add-quicknode-http-provider-url-here"
+PRIVATE_KEY="add-the-private-key-here"
+POLYGONSCAN_KEY="polygonscan-api-key-token-here"
+```
+
+Go to [Quicknode](https://www.quicknode.com/?utm\_source=learnweb3\&utm\_campaign=generic\&utm\_content=sign-up\&utm\_medium=learnweb3) and sign up for an account.&#x20;
+
+* Quicknode is a node provider that lets you connect to various different blockchains.
+* We will be using it to deploy our contract through Hardhat
+
+**Steps:**
+
+1. **Create an account** in  [Quicknode](https://www.quicknode.com/?utm\_source=learnweb3\&utm\_campaign=generic\&utm\_content=sign-up\&utm\_medium=learnweb3)&#x20;
+2. **`Create an endpoint`** on  [Quicknode](https://www.quicknode.com/?utm\_source=learnweb3\&utm\_campaign=generic\&utm\_content=sign-up\&utm\_medium=learnweb3)&#x20;
+   * Select <mark style="color:orange;">**`Polygon`**</mark>, and then&#x20;
+   * Select the <mark style="color:purple;">**`Mumbai`**</mark><mark style="color:purple;">** **</mark><mark style="color:purple;">****</mark> network (testnet)
+   * `Click`` `**`Continue` ** in the bottom right and then click on **`Create Endpoint`**
+3. Copy the link given to you in **`HTTP Provider`** and add it to the **`.env`** file below for **`QUICKNODE_HTTP_URL`**
+
+**To get your private key, you need to export it from Metamask**.&#x20;
+
+* Open Metamask, click on the three dots,&#x20;
+* click on `Account Details` and then `Export Private Key`.&#x20;
+* MAKE SURE YOU ARE USING A TEST ACCOUNT THAT DOES NOT HAVE MAINNET FUNDS FOR THIS.&#x20;
+* Add this Private Key below in your `.env` file for `PRIVATE_KEY` variable.
+
+**Make sure you have some Mumbai `MATIC` tokens to work with**
+
+* If you don't know how to get them, follow [this guide by ThirdWeb](https://portal.thirdweb.com/guides/get-matic-on-polygon-mumbai-testnet-faucet).
+
+**Similar to Etherscan, the Polygon network has Polygonscan.**
+
+* Both block explorers are developed by the same team and work basically exactly the same way.&#x20;
+* To automate contract verification on Polygonscan through Hardhat, we will need an API Key for Polygonscan.&#x20;
+* **Steps**
+  * Go to [PolygonScan](https://polygonscan.com/) and sign up.&#x20;
+  * On the Account Overview page, click on **`API Keys`**, **add a new API Key**, and **copy the `API Key Token`.**&#x20;
+  * Put this in **`POLYGONSCAN_KEY` ** on **.env**.
