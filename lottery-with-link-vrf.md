@@ -275,3 +275,115 @@ Go to [Quicknode](https://www.quicknode.com/?utm\_source=learnweb3\&utm\_campaig
   * Go to [PolygonScan](https://polygonscan.com/) and sign up.&#x20;
   * On the Account Overview page, click on **`API Keys`**, **add a new API Key**, and **copy the `API Key Token`.**&#x20;
   * Put this in **`POLYGONSCAN_KEY` ** on **.env**.
+
+Update **hardhat.config.js** file to use the <mark style="color:purple;">**mumbai**</mark> network and use **etherscan** object for contract verification on <mark style="color:blue;">**polygonscan**</mark>
+
+```javascript
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config({ path: ".env" });
+
+const QUICKNODE_HTTP_URL = process.env.QUICKNODE_HTTP_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY;
+
+module.exports = {
+  solidity: "0.8.4",
+  networks: {
+    mumbai: {
+      url: QUICKNODE_HTTP_URL,
+      accounts: [PRIVATE_KEY],
+    },
+  },
+  etherscan: {
+    apiKey: {
+      polygonMumbai: POLYGONSCAN_KEY,
+    },
+  },
+};
+
+```
+
+Create a new folder named as **`constants` ** and inside that add a new file named **`index.js`**
+
+* The values we got for this are from [here](https://blog.chain.link/how-to-get-a-random-number-on-polygon) and are already provided to us by Chainlink
+
+```javascript
+const { ethers, BigNumber } = require("hardhat");
+
+const LINK_TOKEN = "0x326C977E6efc84E512bB9C30f76E30c160eD06FB";
+const VRF_COORDINATOR = "0x8C7382F9D8f56b33781fE506E897a4F1e2d17255";
+const KEY_HASH =
+  "0x6e75b569a01ef56d18cab6a8e71e6600d6ce853834d4a5748b720d06f878b3a4";
+const FEE = ethers.utils.parseEther("0.0001");
+module.exports = { LINK_TOKEN, VRF_COORDINATOR, KEY_HASH, FEE };
+```
+
+Create/replace ./**`scripts`**/**`deploy.js`**.
+
+* Deployment
+* Contract verification&#x20;
+
+```javascript
+const { ethers } = require("hardhat");
+require("dotenv").config({ path: ".env" });
+const { FEE, VRF_COORDINATOR, LINK_TOKEN, KEY_HASH } = require("../constants");
+
+async function main() {
+  /*
+ A ContractFactory in ethers.js is an abstraction used to deploy new smart contracts,
+ so randomWinnerGame here is a factory for instances of our RandomWinnerGame contract.
+ */
+  const randomWinnerGame = await ethers.getContractFactory("RandomWinnerGame");
+  // deploy the contract
+  const deployedRandomWinnerGameContract = await randomWinnerGame.deploy(
+    VRF_COORDINATOR,
+    LINK_TOKEN,
+    KEY_HASH,
+    FEE
+  );
+
+  await deployedRandomWinnerGameContract.deployed();
+
+  // print the address of the deployed contract
+  console.log(
+    "Verify Contract Address:",
+    deployedRandomWinnerGameContract.address
+  );
+
+  console.log("Sleeping.....");
+  // Wait for etherscan to notice that the contract has been deployed
+  await sleep(30000);
+
+  // Verify the contract after deploying
+  await hre.run("verify:verify", {
+    address: deployedRandomWinnerGameContract.address,
+    constructorArguments: [VRF_COORDINATOR, LINK_TOKEN, KEY_HASH, FEE],
+  });
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Call the main function and catch if there is any error
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+
+```
+
+**Compile and deploy**
+
+<pre class="language-shell"><code class="lang-shell"># If we experience Error: Cannot find module '@nomicfoundation/hardhat-toolbox', then
+<strong># npm install --save-dev @nomicfoundation/hardhat-toolbox
+</strong>
+# from within hardhat folder
+npx hardhat compile
+npx hardhat run scripts/deploy.js --network mumbai
+</code></pre>
+
+
+
