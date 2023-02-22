@@ -72,7 +72,7 @@ We have pre-generated files for metadata for you, you can download them to your 
 
 Now each NFT's metadata has been uploaded to IPFS and pinata should have generated a CID for your metadata folder
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 You can check that it actually got uploaded to IPFS is by opening this up: `https://ipfs.io/ipfs/your-metadata-folder-cid` replace `your-metadata-folder-cid` with the CID you recieved from pinata.
 
