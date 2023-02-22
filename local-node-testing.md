@@ -143,7 +143,7 @@ Then click on Networks, followed by **`Localhost 8545`**
 
 Change the **Chain ID to `31337`**(this is the chainId for the local blockchain you are running) and then click **`Save`**
 
-**``**![](<.gitbook/assets/image (10).png>)**``**
+**``**![](<.gitbook/assets/image (10) (1).png>)**``**
 
 * Now your MetaMask has a connection to your local blockchain&#x20;
 * We will now add the accounts that Hardhat gave to us.&#x20;
