@@ -165,7 +165,17 @@ yarn codegen
 # or npm run codegen
 ```
 
-****
+After the above, **`The Graph`** would have created most of the code for you **expect of the mappings.**&#x20;
+
+If you look at the file inside ** `src`** named **`random-winner-game.ts`**,&#x20;
+
+**The Graph CLI would have created** for you **some functions** **each pointing** to **one of the events that you created in your contract.**&#x20;
+
+**These functions get called everytime the Graph finds an event relating to these functions**.&#x20;
+
+We will add some code to these functions so that we can store the data when an event comes in.
+
+Replace the **`random-winner-game.ts`** file content&#x20;
 
 ****
 
