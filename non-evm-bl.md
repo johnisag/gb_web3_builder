@@ -62,7 +62,7 @@ Each subsequent shard can verify the receipt transaction and get confirmation th
 
 Smart contracts for the NEAR Layer 1 blockchain can be written either in **Rust** or **AssemblyScript**. Communication with blockchain nodes can be done over an HTTP API (similar to Ethereum).
 
-<figure><img src=".gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 It is important to note that NEAR also runs an Ethereum Layer 2 blockchain called **Aurora** which uses the native ETH token as the native gas token for the layer 2 as well.
 
