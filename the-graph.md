@@ -99,7 +99,7 @@ yarn deploy
 # or graph deploy --product hosted-service johnisag/ia_learnweb3
 ```
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (5).png" alt=""><figcaption></figcaption></figure>
 
 ### **Setting the Entities**&#x20;
 
@@ -110,7 +110,7 @@ yarn deploy
 
 _The start block doesn't come with the default settings but because we know that we only need to track the events from the block the contract was deployed, we will not need to sync the entire blockchain but only the part after the contract was deployed for tracking the events_
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```
 source:  
@@ -154,7 +154,7 @@ _**If you want to learn more about the types you can visit this**_ [_**link**_](
 
 _<mark style="color:orange;">Now we have let the graph know what kind of data we will be tracking and what will it contain</mark>_&#x20;
 
-### Query the data
+### Handling our Events
 
 _Graph has an amazing functionality that given the `Entity` it can auto generate large chunk of code for you!!!_
 
@@ -177,10 +177,107 @@ We will add some code to these functions so that we can store the data when an e
 
 Replace the **`random-winner-game.ts`** file content&#x20;
 
-****
+```typescript
+import { BigInt } from "@graphprotocol/graph-ts";
+import {
+  PlayerJoined,
+  GameEnded,
+  GameStarted,
+  OwnershipTransferred,
+} from "../generated/RandomWinnerGame/RandomWinnerGame";
+import { Game } from "../generated/schema";
 
-****
+export function handleGameEnded(event: GameEnded): void {
+  // Entities can be loaded from the store using a string ID; this ID
+  // needs to be unique across all entities of the same type
+  let entity = Game.load(event.params.gameId.toString());
+  // Entities only exist after they have been saved to the store;
+  // `null` checks allow to create entities on demand
+  if (!entity) {
+    return;
+  }
+  // Entity fields can be set based on event parameters
+  entity.winner = event.params.winner;
+  entity.requestId = event.params.requestId;
+  // Entities can be written to the store with `.save()`
+  entity.save();
+}
 
-****
+export function handlePlayerJoined(event: PlayerJoined): void {
+  // Entities can be loaded from the store using a string ID; this ID
+  // needs to be unique across all entities of the same type
+  let entity = Game.load(event.params.gameId.toString());
+  // Entities only exist after they have been saved to the store;
+  // `null` checks allow to create entities on demand
+  if (!entity) {
+    return;
+  }
+  // Entity fields can be set based on event parameters
+  let newPlayers = entity.players;
+  newPlayers.push(event.params.player);
+  entity.players = newPlayers;
+  // Entities can be written to the store with `.save()`
+  entity.save();
+}
+
+export function handleGameStarted(event: GameStarted): void {
+  // Entities can be loaded from the store using a string ID; this ID
+  // needs to be unique across all entities of the same type
+  let entity = Game.load(event.params.gameId.toString());
+  // Entities only exist after they have been saved to the store;
+  // `null` checks allow to create entities on demand
+  if (!entity) {
+    entity = new Game(event.params.gameId.toString());
+    entity.players = [];
+  }
+  // Entity fields can be set based on event parameters
+  entity.maxPlayers = event.params.maxPlayers;
+  entity.entryFee = event.params.entryFee;
+  // Entities can be written to the store with `.save()`
+  entity.save();
+}
+
+export function handleOwnershipTransferred(event: OwnershipTransferred): void {}
+```
+
+Lets understand what is happening in **`handleGameEnded` ** function
+
+* it takes in the **`GameEnded` ** event and expects **`void` ** to be returned which means nothing gets returned from the function
+* It loads a **`Game` ** object from **`Graph's` ** db which has an **ID** equal to the **`gameId` ** that is present in the event that Graph detected
+* If an entity with the given **`id` ** doesn't exist return from the function and dont do anything
+* If it exists, set the winner and the requestId from the event into our Game Object(Note **`GameEnded` ** event has the winner and requestId)
+* Then save this updated Game Object back to the **`Graph's DB`**
+* For each game there will be a unique **`Game` ** object which will have a unique **`gameId`**
+
+Now lets see what's happening in the **`handlePlayerJoined`**
+
+* It loads a **`Game` ** object from **`Graph's`** db which has an **ID** equal to the **`gameId` ** that is present in the event that Graph detected
+* If an entity with the given **`id` ** doesn't exist, return from the function and dont do anything
+* To actually update the player's array, we need to reassign the property on the entity that contains the array (i.e. players) similar to how we assign values to other properties on the entity (e.g. maxPlayers). Therefore, we need to create a temporary array which contains all of the existing entity.players elements, push to that, and reassign entity.players to be equal to the new array.
+* Then save this updated Game Object back to the **`Graph's DB`**
+
+Now lets see what's happening in the **`handleGameStarted`**
+
+* It loads a **`Game` ** object from **`Graph's`** db which has an **ID** equal to the **`gameId` ** that is present in the event that Graph detected
+* If an entity like that doesn't exist create a new one, also initialize the players array
+* Then set the **maxPlayer** and the **entryFee** from the event into our Game Object
+* Save this updated Game Object back to the **`Graph's DB`**
+
+You can now go to your terminal pointing to the **`graph` ** folder and execute the following command:
+
+```sh
+yarn deploy
+# or `npm run deploy`
+```
+
+After deploying, [The Graph's Hosted Service](https://thegraph.com/hosted-service/) and click on **`My Dashboard` ** you will be able to see your graph.
+
+Click on your graph and make sure it says synced, if not wait for it to get synched before proceeding
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### dApp
+
+
 
 ****
